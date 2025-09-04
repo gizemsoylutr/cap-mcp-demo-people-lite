@@ -1,26 +1,50 @@
-# Getting Started
+# people-lite (CAP + cds-mcp demo)
 
-Welcome to your new project.
+Minimal **CAP project** designed to demonstrate how to use [`@cap-js/mcp-server`](https://github.com/cap-js/mcp-server).  
+It contains only **two entities** and **one action**:
 
-It contains these folders and files, following our recommended project layout:
+- `City`  
+- `Person` (with `city` association and `isContact` flag)  
+- `markAsContact(person: UUID)` → sets a person as contact
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+---
 
 
-## Next Steps
+## 🤖 AGENTS.md
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+This repo also includes AGENTS.md with MCP usage rules.
+It ensures AI coding agents (Copilot/Claude/Cline, etc.) always use cds-mcp tools instead of raw file grepping
+
+## 🚀 Getting Started
+
+Clone the repo and install dependencies:
+
+```bash
+npm install
+npm run build
+npm run start
 
 
-## Learn More
+# Search CDS model definitions
+npm run m:model -- "Person"
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
-"# cap-mcp-demo-people-lite" 
+# Find which service publishes the entity
+npm run m:model -- "PeopleService"
+
+# Locate the custom action
+npm run m:model -- "markAsContact action"
+
+# Search CAP documentation semantically
+npm run m:docs -- "CAP Node.js service action example" 2
+
+
+people-lite/
+├─ db/schema.cds              # Entities
+├─ srv/people-service.cds     # Service + Action
+├─ srv/people-service.js      # Action implementation
+├─ package.json
+├─ .cdsrc.json
+├─ AGENTS.md
+└─ README.md
+
+
