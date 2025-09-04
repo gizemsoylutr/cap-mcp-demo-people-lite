@@ -5,4 +5,5 @@ service PeopleService {
   entity Persons as projection on gizemsoylutr.Person;
 
   action markAsContact(person: UUID) returns String;
+  action resetEmail(person: UUID) returns String;
 }
